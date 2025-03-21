@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="relative h-full container flex flex-col justify-center items-start text-white">
         <div className="max-w-lg pt-20" ref={heroRef}>
           <div className="overflow-hidden mb-2">
-            <p className="font-serif italic text-lg md:text-xl animate-fade-up opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>Welcome to</p>
+            <p className="font-serif italic text-lg md:text-xl animate-fade-up opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>Добро пожаловать в</p>
           </div>
           
           <div className="overflow-hidden mb-4">
@@ -41,16 +41,16 @@ const Hero = () => {
           
           <div className="overflow-hidden mb-6">
             <p className="text-lg md:text-xl leading-relaxed animate-fade-up opacity-0" style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}>
-              Experience fine dining in an atmosphere of sophisticated comfort, with seasonally inspired cuisine and impeccable service.
+              Испытайте изысканную кухню в атмосфере утонченного комфорта, с сезонными блюдами и безупречным обслуживанием.
             </p>
           </div>
           
           <div className="flex flex-wrap gap-4 animate-fade-up opacity-0" style={{ animationDelay: "0.8s", animationFillMode: "forwards" }}>
             <a href="#menu" className="btn-primary">
-              Explore Menu
+              Изучить меню
             </a>
             <a href="#reservations" className="px-6 py-3 border border-white/50 hover:bg-white/10 rounded-md transition-all duration-300 backdrop-blur-sm">
-              Reserve a Table
+              Забронировать столик
             </a>
           </div>
         </div>
@@ -58,7 +58,7 @@ const Hero = () => {
       
       {/* Scroll Indicator */}
       <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/80 animate-bounce">
-        <span className="text-sm font-light mb-2">Scroll</span>
+        <span className="text-sm font-light mb-2">Прокрутите</span>
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
