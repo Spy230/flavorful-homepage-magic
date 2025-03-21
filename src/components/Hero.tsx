@@ -21,7 +21,9 @@ const Hero = () => {
   return (
     <section id="home" className="relative h-screen min-h-[650px] overflow-hidden">
       {/* Background Image with Parallax Effect */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514516345957-556ca7c90a34?q=80&w=1740&auto=format&fit=crop')] bg-cover bg-center"></div>
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514516345957-556ca7c90a34?q=80&w=1920&auto=format&fit=crop')] bg-cover bg-center w-full h-full" />
+      </div>
       
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-black/20"></div>
