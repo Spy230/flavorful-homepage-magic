@@ -34,7 +34,7 @@ const Hero = () => {
           </div>
           
           <div className="overflow-hidden mb-4">
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium animate-fade-up opacity-0" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium animate-fade-up opacity-0 leading-[1.1] py-1" style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}>
               Elegance
             </h1>
           </div>
