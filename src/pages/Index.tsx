@@ -1,13 +1,161 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Menu from '@/components/Menu';
+import Gallery from '@/components/Gallery';
+import Reservation from '@/components/Reservation';
+import Testimonials from '@/components/Testimonials';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  useEffect(() => {
+    // Intersection Observer for reveal animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15,
+    };
+
+    const revealCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('reveal-visible');
+        }
+      });
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, observerOptions);
+    const elements = document.querySelectorAll('.reveal-container');
+    
+    elements.forEach((el) => {
+      revealObserver.observe(el);
+    });
+    
+    return () => {
+      revealObserver.disconnect();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Navbar />
+      <Hero />
+      
+      {/* About Section */}
+      <section id="about" className="py-24">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="reveal-container">
+              <div className="reveal-content">
+                <div className="relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1605522469906-3fe226b356bc?w=500&auto=format&fit=crop&q=60" 
+                    alt="Chef preparing food" 
+                    className="rounded-lg shadow-xl"
+                  />
+                  <div className="absolute -bottom-8 -right-8 bg-white p-4 shadow-lg rounded-lg hidden md:block">
+                    <img 
+                      src="https://images.unsplash.com/photo-1610026930555-56ea6f5c9c22?w=500&auto=format&fit=crop&q=60" 
+                      alt="Ingredient closeup" 
+                      className="w-32 h-32 object-cover rounded"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="reveal-container">
+              <div className="reveal-content">
+                <h2 className="section-title">Our Story</h2>
+                <p className="section-subtitle">Passion for culinary excellence</p>
+                <p className="mb-6 text-muted-foreground">
+                  Founded in 2010 by award-winning Chef Daniel Laurent, Elegance was born from a vision to create a dining experience that balances culinary innovation with timeless techniques.
+                </p>
+                <p className="mb-6 text-muted-foreground">
+                  We source the finest seasonal ingredients from local farms and producers, transforming them into dishes that celebrate their natural flavors while showcasing our creative approach.
+                </p>
+                <p className="text-muted-foreground">
+                  Each detail of our restaurant—from the thoughtfully designed dining room to our carefully curated wine list—is intended to create a memorable experience that engages all the senses.
+                </p>
+                
+                <div className="mt-8 grid grid-cols-3 gap-6">
+                  <div className="text-center">
+                    <div className="font-display text-3xl text-restaurant-800 font-medium">13</div>
+                    <div className="text-sm text-muted-foreground">Years of Excellence</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-display text-3xl text-restaurant-800 font-medium">27</div>
+                    <div className="text-sm text-muted-foreground">Award-Winning Dishes</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-display text-3xl text-restaurant-800 font-medium">5</div>
+                    <div className="text-sm text-muted-foreground">Michelin Stars</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <Menu />
+      <Gallery />
+      
+      {/* Special Features */}
+      <section className="py-24 bg-restaurant-800 text-white relative">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500&auto=format&fit=crop&q=60')] bg-cover bg-center opacity-20"></div>
+        <div className="container relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center glass-card bg-white/5 p-8 reveal-container">
+              <div className="reveal-content">
+                <div className="bg-restaurant-600 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+                <h3 className="font-display text-xl mb-3">Private Dining</h3>
+                <p className="text-white/80">
+                  Host your special events in our elegant private dining rooms, with customized menus and dedicated service.
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center glass-card bg-white/5 p-8 reveal-container">
+              <div className="reveal-content" style={{ transitionDelay: "0.2s" }}>
+                <div className="bg-restaurant-600 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                </div>
+                <h3 className="font-display text-xl mb-3">Chef's Table</h3>
+                <p className="text-white/80">
+                  Experience an intimate view of our kitchen with a multi-course tasting menu served by our executive chef.
+                </p>
+              </div>
+            </div>
+            
+            <div className="text-center glass-card bg-white/5 p-8 reveal-container">
+              <div className="reveal-content" style={{ transitionDelay: "0.4s" }}>
+                <div className="bg-restaurant-600 rounded-full w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z" />
+                  </svg>
+                </div>
+                <h3 className="font-display text-xl mb-3">Culinary Events</h3>
+                <p className="text-white/80">
+                  Join our seasonal wine dinners, guest chef collaborations, and themed tasting experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <Reservation />
+      <Testimonials />
+      <Footer />
+    </>
   );
 };
 
